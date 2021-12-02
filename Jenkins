@@ -5,7 +5,7 @@ pipeline {
       
         stage('Build') {
             steps {
-                build job: 'Jenkins Job'
+                build job: 'Jenkins job'
             }
         }
     }
