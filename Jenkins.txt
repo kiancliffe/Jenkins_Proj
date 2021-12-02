@@ -2,20 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kiancliffe/Jenkins_Proj.git']]])
-            }
-        }
+      
         stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/kiancliffe/Jenkins_Proj.git'
-                bat 'python HelloWorld.py'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'the job has been tested'
+                build job: 'Jenkins Python Job'
             }
         }
     }
